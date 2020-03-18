@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Dungeon</title>
+</head>
+<body>
+
+    <div id="status">
+        <div id="icone">
+            <img src="imgs/life.png" alt="">
+            : <p id="life" class="icone">5</p> 
+        </div>
+        <div id="icone">
+            <img src="imgs/strongOriginal.png" alt="">
+            : <p id="strong" class="icone">5</p> 
+        </div>
+        <div id="icone">
+            <img src="imgs/shield.png" alt="">
+            : <p id="shield" class="icone">5</p> 
+        </div>
+        <div id="icone">
+            <img src="imgs/potion.png" alt="">
+            : <p id="potion" class="icone">5</p> 
+        </div>
+    </div>
+    
+    <div id="descricao">
+        Você entrou em uma dungeon! <br/> 
+        Tome cuidado, pois tem alguns monstros que podem te atacar. <br/>
+        digite <strong>atacar</strong> para bater no monstro ou <strong>correr</strong> caso você esteja com medo. <br/><br/>
+
+        Precione <strong>enter/clique em enviar</strong> para continuar!
+    </div>
+
+    <div id="comando">
+        >
+        <input type="text" name="comando" id="txtcomando">
+        <input type="submit" value="ENVIAR" id="submit" onclick="game()">
+    </div>
+
+    <script>
+        var input = window.document.getElementById('txtcomando')
+        input.addEventListener('keyup', function(event){
+            if(event.keyCode === 13){
+                game()
+            }
+        })
+    </script>
+</body>
+</html>
