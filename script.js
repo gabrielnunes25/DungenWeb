@@ -12,9 +12,9 @@ function game(){
     //Status do monstro
 
 
-    // window.alert(`${comando.value} Teste 2`)
+    // window.alert(comando.value + 'Teste 2')
 
-    descricao.innerHTML = `${comando.value} - `
+    descricao.innerHTML = comando.value + ' -'
     // vida.innerHTML = Number.parseInt(vida.textContent) + 1
 
     //Criando Monstro
@@ -25,17 +25,17 @@ function game(){
     //Escolhas
     if (Number(comando.value) == 1) {
         atacar()
-        descricao.innerText += `Vida do monstro ${vidaMonstro} `
+        descricao.innerText += ' Vida do monstro ' + vidaMonstro
     }
     else if (comando.value ==2) {
-        descricao.innerText += 'Correu'
+        descricao.innerText += ' Correu'
     }
 
     //Limpar o campo de entrada
     comando.value = ''
 }
-function atacar(){
-    descricao.innerHTML += `Vida do Heroi - ${vida.textContent} - `
-    vidaMonstro = vidaMonstro - Number(forca.textContent)
 
+function atacar(){
+    descricao.innerHTML += 'Vida do Heroi - ' + vida.textContent + ' -'
+    vidaMonstro = vidaMonstro - Number(forca.textContent)
 }
