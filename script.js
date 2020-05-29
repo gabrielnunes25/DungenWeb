@@ -28,7 +28,7 @@ function game(){
         descricao.innerText += `Vida do monstro ${vidaMonstro} `
     }
     else if (comando.value ==2) {
-        descricao.innerText += `Correu`
+        descricao.innerText += 'Correu'
     }
 
     //Limpar o campo de entrada
