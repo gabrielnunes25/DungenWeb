@@ -1,0 +1,62 @@
+*{
+    color: #ffffff;
+    background-color: #000000;
+    font-family: monospace; /*TENHO QUE ESCOLHER UMA FONTE MELHOR PARA COLOCAR AQUI*/
+    font-size: 22px; /*ESCOLHER UM TAMMANHO MELHOR*/
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width: 45px;
+    height: 45px
+}
+
+section{
+    border: #ffffff solid;
+    align-self: center;
+}
+
+section.geral{
+    width: 70%;
+    margin: 45px auto 0 auto;
+}
+
+section.status,
+section.status div{
+    display: flex;
+}
+section.status {
+    justify-content: space-between;
+    padding: 10px 25px;
+}
+
+section.status div{
+    align-items: center;
+}
+section.status p{
+    padding-left: 10px;
+    font-size: 1.5em;
+}
+section.satus img{
+    margin-right: 10px;
+}
+
+section.descricao{
+    display: block;
+    height: 50vh;
+}
+
+section.comando{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+input#txtcomando{
+    width: 100%;
+    margin: 0 5px;
+}
+
+input.botao{
+    padding: 0 5px;
+}

@@ -36,6 +36,6 @@ function game(){
 }
 
 function atacar(){
-    descricao.innerHTML += 'Vida do Heroi - ' + vida.textContent + ' -'
+    descricao.innerHTML += ' Vida do Heroi - ' + vida.textContent + ' -'
     vidaMonstro = vidaMonstro - Number(forca.textContent)
 }
