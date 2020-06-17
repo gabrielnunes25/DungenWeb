@@ -1,36 +1,39 @@
+/* RESET CSS */
 *{
     color: #ffffff;
     background-color: #000000;
     font-family: monospace; /*TENHO QUE ESCOLHER UMA FONTE MELHOR PARA COLOCAR AQUI*/
-    font-size: 22px; /*ESCOLHER UM TAMMANHO MELHOR*/
+    font-size: 24px; /*ESCOLHER UM TAMMANHO MELHOR*/
     margin: 0;
     padding: 0;
 }
 
+/* TAMANHO IMAGENS */
 img{
     width: 45px;
     height: 45px
 }
 
+/* TODOS OS SELETORES */
 section{
     border: #ffffff solid;
     align-self: center;
 }
 
+/* GERAL */
 section.geral{
     width: 70%;
     margin: 45px auto 0 auto;
 }
 
-section.status,
-section.status div{
+/* STATUS */
+section.status, section.status div{
     display: flex;
 }
 section.status {
     justify-content: space-between;
     padding: 10px 25px;
 }
-
 section.status div{
     align-items: center;
 }
@@ -38,15 +41,15 @@ section.status p{
     padding-left: 10px;
     font-size: 1.5em;
 }
-section.satus img{
-    margin-right: 10px;
-}
 
+/* DESCRIÇÃO */
 section.descricao{
     display: block;
     height: 50vh;
+    padding: 0 5px;
 }
 
+/* COMANDO */
 section.comando{
     display: flex;
     align-items: center;
@@ -56,7 +59,47 @@ input#txtcomando{
     width: 100%;
     margin: 0 5px;
 }
-
 input.botao{
     padding: 0 5px;
+}
+
+@media(max-width: 800px){
+    /* RESET CSS */
+    *{
+        font-size: 16px; /*ESCOLHER UM TAMMANHO MELHOR*/
+    }
+
+    /* TAMANHO IMAGENS */
+    img{
+        width: 20px;
+        height: 20px
+    }
+    
+    /* TODOS OS SELETORES */
+    section{
+        border: #ffffff solid 2px;
+    }
+    
+    /* GERAL */
+    section.geral{
+        width: 98%;
+        margin: 5px auto 0 auto;
+    }
+    
+    /* STATUS */
+    section.status {
+        padding: 5px 10px;
+    }
+    section.status p{
+        padding-left: 5px;
+        font-size: 1.5em;
+    }
+    section.satus img{
+        margin-right: 0px;
+    }
+    
+    /* COMANDO */
+    section.comando{
+        padding: 5px;
+    }
 }
