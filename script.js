@@ -1,4 +1,9 @@
-var vidaMonstro = 10;
+var monstro = {
+    vida: 0,
+    ataque: 0,
+    escudo: 5,
+    nro: 0,
+}
 var status = 0;
 var level = 1;
 
@@ -12,33 +17,46 @@ function game(){
     var forca = window.document.getElementById('forca');
     var escudo = window.document.getElementById('escudo');
     var pocao = window.document.getElementById('pocao');
-    //Status do monstro
 
-
-    // window.alert(comando.value + 'Teste 2')
-
-    descricao.innerHTML = comando.value + ' -';
-    // vida.innerHTML = Number.parseInt(vida.textContent) + 1
+    descricao.innerHTML = comando.value.toUpperCase() + ' -';
 
     //Criando Monstro
-    if (vidaMonstro < 0){
-        vidaMonstro = 15;
+    if (monstro.vida <= 0){
+        monstro.vida = getRandom(7, 15);
+        monstro.ataque = getRandom(2, 4);
+        monstro.nro += 1;
     }
     
     //Escolhas
-    if (Number(comando.value) == 1) {
-        atacar();
-        descricao.innerText += ' Vida do monstro ' + vidaMonstro;
-    }
-    else if (comando.value ==2) {
-        descricao.innerText += ' Correu';
+    switch (comando.value.toUpperCase()) {
+        case '1':
+            descricao.innerHTML += ' Vida do monstro ' + monstro.nro + ' antes do ataque: ' + monstro.vida ;
+            atacar();
+            descricao.innerHTML += '<br/> Vida do monstro ' + monstro.nro + ' depois do ataque: ' + monstro.vida;
+            break;
+        case '2':
+            vida.textContent -= 4;
+            descricao.innerHTML += ' Correu e Apanhou';
+            break;
+        default:
+            console.log('Não tem esse')
+            break;
+        
     }
 
+    if(vida.textContent <= 0){
+        descricao.innerHTML = 'VOCÊ FOI DERROTADO';
+        vida.textContent = 10;
+    }
+    
     //Limpar o campo de entrada
     comando.value = '';
 }
 
+function getRandom(min, max){
+    return Math.floor(Math.random() * max + min);
+}
+
 function atacar(){
-    descricao.innerHTML += ' Vida do Heroi - ' + vida.textContent + ' -'
-    vidaMonstro = vidaMonstro - Number(forca.textContent);
+    monstro.vida -= Number(forca.textContent);
 }
