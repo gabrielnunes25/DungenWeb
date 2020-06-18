@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="script.js"></script>
     <title>Dungeon</title>
 </head>
+
 <body>
     <section class="geral">
         <section class="status">
@@ -29,28 +31,26 @@
         </section>
         <section class="descricao">
             <p id="descricao">
-                Dungeon
-                Você entrou em uma dungeon! <br/> 
-                Tome cuidado, pois tem alguns monstros que podem te atacar. <br/>
-                digite <strong>1</strong> para <strong>atacar</strong> para bater no monstro ou <strong>2</strong> para <strong>correr</strong> caso você esteja com medo. <br/><br/>
-
-                Precione <strong>enter/clique em enviar</strong> para continuar!
+                <span class="logo">Dungeon</span>
+                <br/><br/>
+                <span class="aviso">Precione ENTER ou CLIQUE EM ENVIAR para continuar!</span>
             </p>
         </section>
         <section class="comando">
-            > <input type="text" name="comando" id="txtcomando">
+            > <input type="text" name="comando" id="txtcomando" disabled="true">
             <input type="button" class="botao" value="ENVIAR" onclick="game()">
         </section>
     </section>
 
     <script>
-        var input = window.document.getElementById('txtcomando')
-        input.addEventListener('keyup', function(event){
-            if(event.keyCode === 13){
-                game()
+        var input = window.document.getElementsByTagName('body')[0];
+        input.addEventListener('keyup', function (event) {
+            if (event.keyCode === 13) {
+                game();
                 // window.alert('clicou em enter' + input.value)
             }
         })
     </script>
 </body>
+
 </html>
