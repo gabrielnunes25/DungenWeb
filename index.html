@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilo.css">
     <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
     <title>Dungeon</title>
 </head>
 
@@ -18,7 +19,7 @@
             </div>
             <div>
                 <img src="imgs/forca.png" alt="um punho fechado representando força">
-                : <p id="forca">7</p>
+                : <p id="forca">6</p>
             </div>
             <div>
                 <img src="imgs/escudo.png" alt="um escudo representando a proteção">
@@ -32,13 +33,21 @@
         <section class="descricao">
             <p id="descricao">
                 <span class="logo">Dungeon</span>
-                <br/><br/>
+                <br /><br />
                 <span class="aviso">Precione ENTER ou CLIQUE EM ENVIAR para continuar!</span>
+
             </p>
         </section>
         <section class="comando">
-            > <input type="text" name="comando" id="txtcomando" disabled="true">
+            > <input type="text" name="comando" id="txtcomando" disabled="true" list="datalist" onkeyup="ac(this.value)">
             <input type="button" class="botao" value="ENVIAR" onclick="game()">
+            <datalist id="datalist">
+                <option value="ATACAR"></option>
+                <option value="CORRER"></option>
+                <option value="ESCUDO"></option>
+                <option value="POCAO"></option>
+                <option value="ATAQUE"></option>
+            </datalist>
         </section>
     </section>
 
@@ -50,6 +59,32 @@
                 // window.alert('clicou em enter' + input.value)
             }
         })
+
+        var tags = [
+            "ATACAR",
+            "CORRER",
+            "ESCUDO",
+            "POCAO",
+            "ATAQUE",
+        ];
+
+        var n = tags.length;
+
+        function ac(value) {
+            document.getElementById('datalist').innerHTML = '';
+
+            l = value.length;
+            for (var i = 0; i < n; i++) {
+                if (((tags[i].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
+
+                    var node = document.createElement("option");
+                    var val = document.createTextNode(tags[i]);
+                    node.appendChild(val);
+
+                    document.getElementById("datalist").appendChild(node);
+                }
+            }
+        }
     </script>
 </body>
 
