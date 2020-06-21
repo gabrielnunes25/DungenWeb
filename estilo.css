@@ -11,7 +11,7 @@
 /* TAMANHO IMAGENS */
 img{
     width: 45px;
-    height: 45px
+    height: 45px;
 }
 
 /* TODOS OS SELETORES */
@@ -53,9 +53,17 @@ span.logo{
     font-size: 150px;
     justify-content: center;
 }
-span.aviso{
+span.aviso,
+h1{
     display: flex;
     justify-content: center;
+}
+h1{
+    font-size: 1.5em;
+}
+section.descricao img{
+    width: 20px;
+    height: 20px;
 }
 
 /* COMANDO */

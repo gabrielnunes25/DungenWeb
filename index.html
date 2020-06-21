@@ -39,14 +39,16 @@
             </p>
         </section>
         <section class="comando">
-            > <input type="text" name="comando" id="txtcomando" disabled="true" list="datalist" onkeyup="ac(this.value)">
+            > <input type="text" name="comando" id="txtcomando" disabled="true" list="datalist"
+                onkeyup="ac(this.value)">
             <input type="button" class="botao" value="ENVIAR" onclick="game()">
             <datalist id="datalist">
                 <option value="ATACAR"></option>
                 <option value="CORRER"></option>
+                <option value="CURAR"></option>
                 <option value="ESCUDO"></option>
-                <option value="POCAO"></option>
-                <option value="ATAQUE"></option>
+                <option value="POÇÃO"></option>
+                <option value="FORÇA"></option>
             </datalist>
         </section>
     </section>
@@ -63,9 +65,10 @@
         var tags = [
             "ATACAR",
             "CORRER",
+            "CURAR",
             "ESCUDO",
-            "POCAO",
-            "ATAQUE",
+            "POÇÃO",
+            "FORÇA",
         ];
 
         var n = tags.length;
