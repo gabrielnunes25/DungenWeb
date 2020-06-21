@@ -44,18 +44,21 @@ function game() {
     switch (status) {
         // TUTORIAL
         case 'TUTORIAL':
-            descricao.innerHTML = '<h1>Tutorial</h1><br/>  Para jogar você jogar precisa digitar os comandos para o herói, os comando são: <br/><br/><strong>ATACAR</strong> -> Para que o herói ataque o mosntro, mas lembre que ele pode errar. <br/><strong>CORRER</strong> -> Para o herói correr do monstro, assim você será atacado pelas costas. <br/><strong>CURAR</strong> -> O herói vai curar 4 pontos de vida.'
+            descricao.innerHTML = '<h1>Tutorial</h1><br/>  Para jogar você jogar precisa digitar os comandos para o herói, os comando são: <br/><br/><strong>ATACAR</strong> -> Para que o herói ataque o mosntro, mas lembre que ele pode errar. <br/><strong>CORRER</strong> -> Para o herói correr do monstro, assim você será atacado pelas costas. <br/><strong>CURAR</strong> -> O herói vai curar 4 pontos de vida.';
+
             status = 'EXPLICANDO';
             break;
         // EXPLICANDO
         case 'EXPLICANDO':
             descricao.innerHTML = '<h1>Tutorial</h1><br/> As imagens a cima significam os atributos do herói.<br/><br/><img src="imgs/vida.png" alt=""> -> São os pontos de vida.<br/><img src="imgs/forca.png" alt=""> -> A foça (dano) dele.<br/><img src="imgs/escudo.png" alt=""> -> A proteção da armadura do herói.<br/><img src="imgs/pocao.png" alt=""> -> A quantidade de poções que ele tem.<br/>';
+
             status = 'HISTÓRIA INICIAL';
             break;
 
         // HISTÓRIA INICIAL
         case 'HISTÓRIA INICIAL':
-            descricao.innerHTML = '<h1>Você entrou em uma dungeon!</h1><br/> Tome cuidado, pois tem alguns monstros que podem te atacar.'
+            descricao.innerHTML = '<h1>Você entrou em uma dungeon!</h1><br/> Tome cuidado, pois tem alguns monstros podem te atacar.'
+            comando.disabled = true;
             status = 'PARTIDA';
             break;
 
@@ -74,7 +77,11 @@ function game() {
     }
 
     if (vida.textContent <= 0) {
-        descricao.innerHTML = 'VOCÊ FOI DERROTADO';
+        descricao.innerHTML = '<h1>VOCÊ MORREU</h1><br/>infelizmente você foi derrotado, tome mais cuidado da proxima vez.<br/>Mas você conseguiu derrotar alguns monstros.<br/><br/><h2>MONSTROS DERROTADOS: ' + monstro.nro + ' </h2><br/><br/><span class="aviso">Precione ENTER ou CLIQUE em ENVIAR para começar de novo!</span>';
+
+        comando.disabled = true;
+        console.clear();
+        console.log('o heroi morreu');
         vida.textContent = 10;
         status = 'HISTÓRIA INICIAL';
     }
