@@ -88,7 +88,7 @@ input.botao{
 @media(max-width: 800px){
     /* RESET CSS */
     *{
-        font-size: 18px; /*ESCOLHER UM TAMMANHO MELHOR*/
+        font-size: 16px; /*ESCOLHER UM TAMMANHO MELHOR*/
     }
 
     /* TAMANHO IMAGENS */
