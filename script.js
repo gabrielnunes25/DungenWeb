@@ -30,7 +30,7 @@ function game() {
     //Criando Monstro
     criandoMonstro();
 
-    if (monstro.nro % 10 == 0 && monstro.nro > 0) {
+    if (monstro.nro % (4 + level) == 0 && monstro.nro > 0) {
         status = 'SUBIU DE LEVEL';
         monstro.nro += 1;
         subiuLevel();
@@ -47,7 +47,7 @@ function game() {
             break;
         // EXPLICANDO
         case 'EXPLICANDO':
-            descricao.innerHTML = '<h1>Tutorial</h1><br/> As imagens acima são os atributos do herói.<br/><br/><img src="imgs/vida.png" alt=""> -> São os pontos de vida.<br/><img src="imgs/forca.png" alt=""> -> A foça (dano) dele.<br/><img src="imgs/escudo.png" alt=""> -> A proteção da armadura do herói.<br/><img src="imgs/pocao.png" alt=""> -> A quantidade de poções que ele tem.<br/>';
+            descricao.innerHTML = '<h1>Tutorial</h1><br/> As imagens acima são os atributos do herói.<br/><br/><img src="imgs/vida.png" alt=""> -> São os pontos de vida.<br/><img src="imgs/forca.png" alt=""> -> A força (dano) dele.<br/><img src="imgs/escudo.png" alt=""> -> A proteção da armadura do herói.<br/><img src="imgs/pocao.png" alt=""> -> A quantidade de poções que ele tem.<br/>';
 
             status = 'HISTÓRIA INICIAL';
             break;
@@ -126,10 +126,9 @@ function heroiAtacar() {
 }
 
 function monstroAtaque() {
-    let dado = getRandom(1, 10);
+    let dado = getRandom(3, 10);
     console.log('valor dado: ' + dado);
 
-    descricao.innerHTML += '<br/>O ' + monstro.nome + ' te atacou';
     if (dado == 1) {
         console.log('monstro erro critico');
         if (monstro.escudo > 0) {
@@ -140,10 +139,12 @@ function monstroAtaque() {
         console.log('monstro acerto critico');
         console.log('O acerto foi de ' + (monstro.forca * 1.5));
         vida.textContent -= (monstro.forca * 1.5);
+        descricao.innerHTML += '<br/>O ' + monstro.nome + ' te atacou';
         // descricao.innerHTML += 'O monstro cometeu um acerto crítico.';
     } else if (dado >= escudo.textContent) {
         console.log('monstro acertou');
         vida.textContent -= monstro.forca;
+        descricao.innerHTML += '<br/>O ' + monstro.nome + ' te atacou';
         // descricao.innerHTML += 'O monstro cometeu um acerto.';
     } else {
         console.log('monstro erro')
@@ -225,6 +226,7 @@ function subiuLevel() {
             escolhaHeroi();
             break;
     }
+    level = level + 1;
 }
 
 function criandoMonstro() {
