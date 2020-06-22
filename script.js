@@ -153,7 +153,8 @@ function monstroAtaque() {
 }
 
 function escolhaHeroi() {
-    descricao.innerHTML = comando.value.toUpperCase() + '<br/>';
+    // descricao.innerHTML = comando.value.toUpperCase() + '<br/>';
+    descricao.innerHTML = '';
 
     criandoMonstro();
 
